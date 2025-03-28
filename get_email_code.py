@@ -106,7 +106,7 @@ class EmailVerificationHandler:
                     continue
                 body = self._extract_imap_body(email_message)
                 if body:
-                    code_match = re.search(r"\b\d{6}\b", body)
+                    code_match = re.search(r"\b(\d{6})\b\r\n", body)
                     if code_match:
                         code = code_match.group()
                         # 删除找到验证码的邮件
